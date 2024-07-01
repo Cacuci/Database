@@ -1,0 +1,98 @@
+﻿--------------------------------------------------- CONFIGURAÇÃO INICIAL ---------------------------------------------------
+1) Executar o DataBase First (scaffold) do banco o qual deseja versionar através do comando abaixo:
+    
+    dotnet ef dbcontext scaffold "Server=(localdb)\\mssqllocaldb;Database=LogisticMobileWM;Trusted_Connection=True;"
+
+2) Para cada BD versionado o comando acima irá criar uma classe (arquivo .cs) com o sufixo Context, mover a respectiva classe para a pasta DBContext.
+
+3) Ajustar a string de conexão dos bancos no appsettings.json
+
+4) Para cada BD versionado gerar scripts estruturais/insert das tabelas de dominio e scripts das SPs/Views/Functions
+   
+5) Salvar os scripts acima gerados nos seus respectivos arquivos scriptHST.sql e scriptWM.sql
+
+6) Aplicar os comandos para a criação do Migrations do banco WM e HST
+
+	dotnet ef migrations add Initial_2024_10 --context WMContext --output-dir Migrations/WMMigrations/2024_10
+	dotnet ef migrations add Initial_2024_10 --context HSTContext --output-dir Migrations/HSTMigrations/2024_10
+
+7) Alterar o método UP da migração acima para a classe abaixo, substituindo a informação ".sql" para o respectivo arquivo de script. 
+    OBS.: no exemplo abaixo o arquivo .sql deve está na pasta DEBUG
+
+protected override void Up(MigrationBuilder migrationBuilder)
+{
+    var assembly = Assembly.GetExecutingAssembly();
+    
+    var sqlFiles = assembly.GetManifestResourceNames()
+                           .Where(file => file.EndsWith(".sql"));
+    
+    foreach (var sqlFile in sqlFiles)
+    {
+        using (Stream stream = assembly.GetManifestResourceStream(sqlFile))
+        using (StreamReader reader = new StreamReader(stream))
+        {
+            var sqlScript = reader.ReadToEnd();
+            migrationBuilder.Sql($"EXEC(N'{sqlScript}')");
+        }
+    }
+}
+
+8) Aplicar Migrations
+	dotnet ef database update --context HSTContext
+	dotnet ef database update --context WMContext
+
+--------------------------------------------------- COMMANDOS ---------------------------------------------------
+
+--Multiplos Contextos--
+
+dotnet ef migrations add InitialCreate --context ProductionContext --output-dir Migrations/ProductionMigrations
+
+--Adicionar nova migração--
+dotnet ef migrations add ???? --context
+
+--Remove a ultima migração
+dotnet ef migrations remove --context 
+
+--Atualiza o banco--
+dotnet ef database update --context
+
+--Geração de Srcipts--
+dotnet ef migrations script -o PrimeiroScript.sql --context
+dotnet ef migrations script -o SegundoScript.sql --idempotent --context WMContext
+
+Obs.: scripts idempotentes verificam internamente quais migrações já foram aplicadas (por meio da tabela de histórico de migrações) e aplicam-se apenas às tabelas ausentes.
+
+--Geração de Srcipts--
+dotnet ef migrations script
+
+dotnet ef migrations script -o Sexto.sql  --idempotent --context WMContext
+
+-Nomeado
+Script-Migration -O teste -From 20230601203615_202306011736 -To 20230601205847_202306011758 -Idempotent -Context WMContext
+
+Script-Migration -From 20230601203615_202306011736 -To 20230601205847_202306011758 -Idempotent -Context WMContext
+
+<FROM> A migração inicial. As migrações podem ser identificadas por nome ou por ID. O número 0 é um caso especial que significa antes da primeira migração. Assume o padrão de 0.
+<TO> A migração final. O padrão é a última migração.
+
+--Cria um executável para atualizar o banco de dados
+dotnet ef migrations bundle
+
+-o	O caminho do arquivo executável a ser criado
+-f	Substitui os arquivos existentes
+
+--Metodos Migrations-- 
+protected override void Up(MigrationBuilder migrationBuilder)
+{
+    var script = @"";
+            
+    migrationBuilder.Sql(script);
+}
+
+/// <inheritdoc />
+protected override void Down(MigrationBuilder migrationBuilder)
+{
+    var script = "DROP TABLE TABLE";
+            
+    migrationBuilder.Sql(script);
+}
