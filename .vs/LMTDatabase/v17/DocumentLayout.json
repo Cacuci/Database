@@ -1,12 +1,7 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\rafae\\Desktop\\Database\\LMTDatabase\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{29F66397-7D34-4CCD-B3A8-C881172CE5CF}|LMTDatabase\\LMTDatabase.csproj|c:\\users\\rafae\\desktop\\database\\lmtdatabase\\lmtdatabase\\leia-me.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{29F66397-7D34-4CCD-B3A8-C881172CE5CF}|LMTDatabase\\LMTDatabase.csproj|solutionrelative:lmtdatabase\\leia-me.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
-    }
-  ],
+  "WorkspaceRootPath": "C:\\Git\\LMTDatabase\\",
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -14,7 +9,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": -1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -35,19 +30,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{ce0010b1-93a1-33bb-8d9c-bcc1bf6c4873}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Leia-me.txt",
-              "DocumentMoniker": "C:\\Users\\rafae\\Desktop\\Database\\LMTDatabase\\LMTDatabase\\Leia-me.txt",
-              "RelativeDocumentMoniker": "LMTDatabase\\Leia-me.txt",
-              "ToolTip": "C:\\Users\\rafae\\Desktop\\Database\\LMTDatabase\\LMTDatabase\\Leia-me.txt",
-              "RelativeToolTip": "LMTDatabase\\Leia-me.txt",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAABbAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
-              "WhenOpened": "2024-07-01T19:34:05.094Z",
-              "EditorCaption": ""
             }
           ]
         }

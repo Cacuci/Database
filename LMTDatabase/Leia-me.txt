@@ -56,13 +56,13 @@ dotnet ef migrations remove --context
 --Atualiza o banco--
 dotnet ef database update --context
 
---Geração de Srcipts--
+--Geração de Scripts--
 dotnet ef migrations script -o PrimeiroScript.sql --context
 dotnet ef migrations script -o SegundoScript.sql --idempotent --context WMContext
 
 Obs.: scripts idempotentes verificam internamente quais migrações já foram aplicadas (por meio da tabela de histórico de migrações) e aplicam-se apenas às tabelas ausentes.
 
---Geração de Srcipts--
+--Geração de Scripts--
 dotnet ef migrations script
 
 dotnet ef migrations script -o Sexto.sql  --idempotent --context WMContext
@@ -77,6 +77,9 @@ Script-Migration -From 20230601203615_202306011736 -To 20230601205847_2023060117
 
 --Cria um executável para atualizar o banco de dados
 dotnet ef migrations bundle
+
+-Aplicar o executável
+.\efbundle.exe --connection "Server=(localdb)\mssqllocaldb;Database=LogisticMobileWM;Trusted_Connection=True"
 
 -o	O caminho do arquivo executável a ser criado
 -f	Substitui os arquivos existentes

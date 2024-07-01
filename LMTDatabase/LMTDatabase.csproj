@@ -23,7 +23,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="DBContext\" />
     <Folder Include="Migrations\HSTMigrations\2024_10\" />
     <Folder Include="Migrations\WMMigrations\2024_10\" />
   </ItemGroup>

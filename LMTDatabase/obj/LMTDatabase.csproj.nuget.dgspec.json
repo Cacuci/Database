@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\rafae\\Desktop\\Database\\LMTDatabase\\LMTDatabase\\LMTDatabase.csproj": {}
+    "C:\\Git\\LMTDatabase\\LMTDatabase\\LMTDatabase.csproj": {}
   },
   "projects": {
-    "C:\\Users\\rafae\\Desktop\\Database\\LMTDatabase\\LMTDatabase\\LMTDatabase.csproj": {
+    "C:\\Git\\LMTDatabase\\LMTDatabase\\LMTDatabase.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\rafae\\Desktop\\Database\\LMTDatabase\\LMTDatabase\\LMTDatabase.csproj",
+        "projectUniqueName": "C:\\Git\\LMTDatabase\\LMTDatabase\\LMTDatabase.csproj",
         "projectName": "LMTDatabase",
-        "projectPath": "C:\\Users\\rafae\\Desktop\\Database\\LMTDatabase\\LMTDatabase\\LMTDatabase.csproj",
+        "projectPath": "C:\\Git\\LMTDatabase\\LMTDatabase\\LMTDatabase.csproj",
         "packagesPath": "C:\\Users\\rafae\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\rafae\\Desktop\\Database\\LMTDatabase\\LMTDatabase\\obj\\",
+        "outputPath": "C:\\Git\\LMTDatabase\\LMTDatabase\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -96,6 +96,11 @@
             }
           },
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.205/PortableRuntimeIdentifierGraph.json"
+        }
+      },
+      "runtimes": {
+        "win-x64": {
+          "#import": []
         }
       }
     }
